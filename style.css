@@ -1,6 +1,7 @@
 canvas {
   max-width: max-content;
   width: 100%;
+  user-select: none;
 }
 
 body {
