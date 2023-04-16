@@ -9,10 +9,10 @@ export type SlotName =
   | "BOTTOM_LEFT"
   | "BOTTOM_RIGHT";
 
-// all specified in clockwise order for easy rotation later
-export const TOP_SLOT_GROUP: SlotName[] = ["CENTER", "TOP_RIGHT", "TOP_LEFT"];
-export const LEFT_SLOT_GROUP: SlotName[] = ["CENTER", "LEFT", "BOTTOM_LEFT"];
-export const RIGHT_SLOT_GROUP: SlotName[] = ["CENTER", "BOTTOM_RIGHT", "RIGHT"];
+// all specified in counter clockwise order for easy rotation later
+export const TOP_SLOT_GROUP: SlotName[] = ["CENTER", "TOP_LEFT", "TOP_RIGHT"];
+export const LEFT_SLOT_GROUP: SlotName[] = ["CENTER", "BOTTOM_LEFT", "LEFT"];
+export const RIGHT_SLOT_GROUP: SlotName[] = ["CENTER", "RIGHT", "BOTTOM_RIGHT"];
 export const ALL_GROUPS: SlotName[][] = [
   TOP_SLOT_GROUP,
   LEFT_SLOT_GROUP,
@@ -49,7 +49,7 @@ export function rotateGroup(slotGroup: SlotName[], pieces: PuzzlePiece[]) {
 
     piece.slot = previousSlot;
     piece.offset = previousOffset;
-    piece.rotation += (Math.PI * 2) / 3;
+    piece.rotation -= (Math.PI * 2) / 3;
 
     previousSlot = currentSlot;
     previousOffset = currentOffset;
